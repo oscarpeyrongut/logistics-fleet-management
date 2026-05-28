@@ -1,0 +1,16 @@
+services:
+  db-logistique:
+    image: postgres:15-alpine
+    container_name: postgres_container
+    restart: always
+    environment:
+      POSTGRES_USER: admin_user
+      POSTGRES_PASSWORD: super_password
+      POSTGRES_DB: logistique_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
